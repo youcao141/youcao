@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox宜城市政务服务中心</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+            padding: 20px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            width: 100%;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .button-group {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 15px;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+        
+        button {
+            padding: 12px 25px;
+            margin: 0 8px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #0056b3, #003d7a);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 800px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 20px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #007BFF, #00a8ff, #007BFF);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .content h1, .content h2, .content h3 {
+            color: #007BFF;
+            margin: 15px 0;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .content p, .content ol, .content ul {
+            margin: 10px 0;
+            line-height: 1.7;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .content ul, .content ol {
+            list-style-position: inside;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .content li {
+            margin: 10px 0;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+        }
+        
+        .rules-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .rule-card {
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            width: calc(50% - 10px);
+            min-width: 300px;
+            text-align: center;
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .rule-card h4 {
+            color: #0032ff;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .badge {
+            background: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+                border-radius: 20px;
+                padding: 15px 10px;
+            }
+            
+            button {
+                width: 90%;
+                margin: 8px 0;
+            }
+            
+            .rule-card {
+                width: 100%;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #007BFF, #00a8ff);
+            border-radius: 2px;
+        }
+        
+        .recruitment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .recruitment-card {
+            background: rgba(0, 123, 255, 0.08);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(0, 123, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .recruitment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 123, 255, 0.12);
+        }
+        
+        .recruitment-card h3 {
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #007BFF, #00a8ff);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Roblox宜城市政务服务中心</h1>
+            <p>高效服务 · 便民利民 · 公正透明</p>
+        </div>
+        
+        <div class="button-group">
+            <button onclick="switchContent(1)">通知公告</button>
+            <button onclick="switchContent(2)">公职人员招聘</button>
+            <button onclick="switchContent(3)">社会企业招聘</button>
+            <button onclick="switchContent(4)">联系我们</button>
+        </div>
+        
+        <div class="content" id="content">
+            <div class="welcome-message">
+                <h2>欢迎使用Roblox宜城市政务服务中心</h2>
+                <p>请点击上方按钮获取相关信息与服务</p>
+                <div style="margin-top: 30px;">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24'%3E%3Cpath fill='%23007BFF' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/%3E%3C/svg%3E" alt="Government Icon" style="width: 100px; opacity: 0.7; margin-top: 20px;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Roblox宜城市政务服务中心 | 技术支持: 3349939639</p>
+        </div>
+    </div>
+
+    <script>
+        function switchContent(num) {
+            var content = document.getElementById('content');
+            switch (num) {
+                case 1:
+                    content.innerHTML = `
+                        <div class="section-title">
+                            <h2>Roblox宜城市规则</h2>
+                        </div>
+                        <div class="rules-container">
+                            <div class="rule-card">
+                                <h4>行为规范</h4>
+                                <p>1. 不得打骂他人【包括英文外语，谐音】</p>
+                                <p>2. 不得挑衅他人</p>
+                                <p>3. 不得攻击自己人</p>
+                                <p>4. 不得发布涉黄，赌，毒，外挂</p>
+                                <p>5. 一切行动听指挥</p>
+                                <p>6. 未在执行任务不得打警笛亮警灯</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4>工作要求</h4>
+                                <p>7. 不得辱骂上级领导，顶撞上级领导</p>
+                                <p>8. 如对督察处罚不满意，可向群主申请复审</p>
+                                <p>9. 游戏中严格遵守交通秩序</p>
+                                <p>10. 督查调查需积极配合</p>
+                                <p>11. 调查问话，请积极配合</p>
+                                <p>12. 不得发布任何违法的言论</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4>工作纪律</h4>
+                                <p>13. 一周必须发布1张照片【在游戏中工作】</p>
+                                <p>14. 如果发生暴乱必须请示上级不得私自行动</p>
+                                <p>15. 如果发现通缉人员，不得激怒，请示上级</p>
+                                <p>16. 乐子勿加</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px; font-weight: bold; color: #007BFF; font-size: 1.2rem;">
+                            Roblox宜昌市市政府宣
+                        </div>
+                    `;
+                    break;
+                case 2:
+                    content.innerHTML = `
+                        <div class="section-title">
+                            <h2>公职人员招聘</h2>
+                        </div>
+                        
+                        <div class="recruitment-grid">
+                            <div class="recruitment-card">
+                                <h3>纪检委招聘启事</h3>
+                                <p>纪检委作为维护党纪政纪、推进党风廉政建设和反腐败斗争的重要力量，肩负着监督执纪问责的神圣使命。</p>
+                                <p>招聘职位：</p>
+                                <ul>
+                                    <li>执法人员 × 3</li>
+                                    <li>纪检监察专员 × 1</li>
+                                    <li>组织部部长 × 1</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="recruitment-card">
+                                <h3>警察招聘启事</h3>
+                                <p>必要条件：</p>
+                                <ul>
+                                    <li>C1驾驶证</li>
+                                    <li>没有犯罪史</li>
+                                    <li>驾驶证必须12分</li>
+                                    <li>党员介绍人</li>
+                                    <li>所有成人对你印象良好</li>
+                                    <li>拥有警察通行证</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="recruitment-card">
+                                <h3>工作纪律</h3>
+                                <ul>
+                                    <li>听指挥干什么事(包括查车)要在警用频道报备</li>
+                                    <li>听党话，跟党走做一个清正廉洁的公职人员</li>
+                                    <li>公职人员不可徇私枉法</li>
+                                    <li>不可利用手中职权获得利益</li>
+                                    <li>如有发现终生黑名单</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="recruitment-card">
+                                <h3>职业需求</h3>
+                                <ul>
+                                    <li>驾校经理 × 1</li>
+                                    <li>交警 × 1</li>
+                                    <li>民警 × 1</li>
+                                    <li>交通运输管理局 查车的 × 2</li>
+                                    <li>和市场监管部门联合执法</li>
+                                    <li>如果抓了10个人可以申请警察局副局长</li>
+                                    <li>如果你有违法乱纪的事情纪检会找到你</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 3:
+                    content.innerHTML = `
+                        <div class="section-title">
+                            <h2>社会企业招聘</h2>
+                        </div>
+                        
+                        <div class="recruitment-card" style="max-width: 600px;">
+                            <h3>幽草出行招聘司机</h3>
+                            <p>要求：</p>
+                            <ul>
+                                <li>无重大交通事故记录，无不良驾驶记录</li>
+                                <li>具有较强的安全意识</li>
+                                <li>服务意识强，具备良好的沟通能力</li>
+                                <li>职业素养高，能热情、耐心地服务乘客</li>
+                            </ul>
+                            
+                            <div style="margin-top: 25px;">
+                                <h3>岗位招聘</h3>
+                                <p>司机 <span class="highlight">3名</span></p>
+                                <p>经理 <span class="highlight">1名</span></p>
+                            </div>
+                            
+                            <div style="margin-top: 25px; background: rgba(0, 123, 255, 0.1); padding: 15px; border-radius: 10px;">
+                                <h3>薪资待遇</h3>
+                                <p style="font-size: 1.4rem; color: #e74c3c; font-weight: bold;">50w+绩效</p>
+                                <p>一周一结</p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 4:
+                    content.innerHTML = `
+                        <div class="section-title">
+                            <h2>联系我们</h2>
+                        </div>
+                        
+                        <div style="max-width: 500px;">
+                            <div style="font-size: 1.8rem; margin: 30px 0; color: #007BFF;">
+                                <i class="fas fa-envelope"></i> 技术支持
+                            </div>
+                            
+                            <div style="background: rgba(0, 123, 255, 0.1); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                                <p style="font-size: 1.5rem; font-weight: bold; color: #e74c3c;">3349939639</p>
+                                <p>工作日 9:00 - 18:00</p>
+                            </div>
+                            
+                            <div style="margin-top: 40px;">
+                                <p>祝您在Roblox宜城市游玩愉快！</p>
+                                <p style="margin-top: 15px; font-size: 0.9rem; color: #777;">
+                                    本服务中心致力于为市民提供高效、便捷的政务服务
+                                </p>
+                            </div>
+                            
+                            <div style="margin-top: 30px; opacity: 0.7;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 24 24'%3E%3Cpath fill='%23007BFF' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E" alt="Contact">
+                            </div>
+                        </div>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = `
+                        <div class="welcome-message">
+                            <h2>欢迎使用Roblox宜城市政务服务中心</h2>
+                            <p>请点击上方按钮获取相关信息与服务</p>
+                        </div>
+                    `;
+            }
+            
+            // 添加动画效果
+            content.style.opacity = 0;
+            setTimeout(() => {
+                content.style.transition = "opacity 0.5s ease";
+                content.style.opacity = 1;
+            }, 10);
+        }
+    </script>
+</body>
+</html>
