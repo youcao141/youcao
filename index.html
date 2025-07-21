@@ -1,494 +1,860 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox宜城市政务服务中心</title>
-    <style>
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>玄机六爻 - 专业算卦预测服务</title> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;family=Noto+Serif+SC:wght@400;700&amp;display=swap" rel="stylesheet"> 
+  <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #8b4513;
+            --dark-bg: #1a120b;
+            --medium-bg: #2c1a0d;
+            --light-bg: #3c2818;
+            --text-color: #f5f5dc;
         }
         
         body {
-            font-family: 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #333;
-            padding: 20px;
-        }
-        
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            font-family: 'Noto Serif SC', serif;
+            background: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 10% 20%, rgba(43, 29, 14, 0.8) 0%, rgba(26, 18, 11, 0.9) 90%);
         }
         
         .container {
-            width: 100%;
-            max-width: 900px;
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: rgba(26, 18, 11, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--primary-color);
+        }
+        
+        .header-container {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
         }
         
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            width: 100%;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .button-group {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50px;
-            padding: 15px;
-            margin: 20px 0;
-            width: 100%;
-            max-width: 800px;
+        .logo {
             display: flex;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 10;
+            align-items: center;
         }
         
-        button {
-            padding: 12px 25px;
-            margin: 0 8px;
-            background: linear-gradient(135deg, #007BFF, #0056b3);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
             font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            min-width: 150px;
-            text-align: center;
+            border: 2px solid var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         
-        button:hover {
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-color);
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, #0056b3, #003d7a);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
-        button:active {
-            transform: translateY(1px);
-        }
-        
-        .content {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            max-width: 800px;
-            min-height: 500px;
+        .btn-qq {
+            background: #12b7f5;
+            border-color: #12b7f5;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 20px 0 40px;
+            gap: 10px;
+        }
+        
+        .btn-qq:hover {
+            background: transparent;
+            color: #12b7f5;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
         
-        .content::before {
-            content: "";
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(90deg, #007BFF, #00a8ff, #007BFF);
-            border-radius: 20px 20px 0 0;
-        }
-        
-        .content h1, .content h2, .content h3 {
-            color: #007BFF;
-            margin: 15px 0;
-            text-align: center;
             width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518655048521-f130df041f66?auto=format&fit=crop&q=80') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: -1;
         }
         
-        .content p, .content ol, .content ul {
-            margin: 10px 0;
-            line-height: 1.7;
-            text-align: center;
-            width: 100%;
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
         }
         
-        .content ul, .content ol {
-            list-style-position: inside;
-            padding: 0;
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-family: 'Ma Shan Zheng', cursive;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-btns {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            gap: 20px;
         }
         
-        .content li {
-            margin: 10px 0;
-            text-align: center;
-            width: 100%;
-            max-width: 700px;
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
         }
         
-        .rules-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
         }
         
-        .rule-card {
-            background: rgba(0, 123, 255, 0.1);
-            border-radius: 15px;
-            padding: 15px;
-            width: calc(50% - 10px);
-            min-width: 300px;
-            text-align: center;
-            border: 1px solid rgba(0, 123, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .rule-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .rule-card h4 {
-            color: #0032ff;
-            margin-bottom: 10px;
-        }
-        
-        .footer {
-            color: white;
-            text-align: center;
-            padding: 20px;
-            width: 100%;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .badge {
-            background: #e74c3c;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
-        
-        @media (max-width: 768px) {
-            .button-group {
-                flex-direction: column;
-                align-items: center;
-                border-radius: 20px;
-                padding: 15px 10px;
-            }
-            
-            button {
-                width: 90%;
-                margin: 8px 0;
-            }
-            
-            .rule-card {
-                width: 100%;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
+        /* 卦象展示区 */
+        .gua-section {
+            padding: 100px 0;
+            background: var(--medium-bg);
+            position: relative;
         }
         
         .section-title {
+            text-align: center;
+            margin-bottom: 60px;
             position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            width: 100%;
         }
         
-        .section-title::after {
-            content: "";
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            font-family: 'Ma Shan Zheng', cursive;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #007BFF, #00a8ff);
-            border-radius: 2px;
+            height: 3px;
+            background: var(--primary-color);
         }
         
-        .recruitment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 100%;
-            margin-top: 20px;
+        .gua-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
         }
         
-        .recruitment-card {
-            background: rgba(0, 123, 255, 0.08);
+        .gua-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .gua-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-color);
+        }
+        
+        .gua-card i {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .gua-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* QQ预约区域 */
+        .qq-section {
+            padding: 100px 0;
+            background: var(--dark-bg);
+            text-align: center;
+            position: relative;
+        }
+        
+        .qq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--medium-bg);
             border-radius: 15px;
-            padding: 20px;
-            border: 1px solid rgba(0, 123, 255, 0.15);
-            transition: all 0.3s ease;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
         }
         
-        .recruitment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            background: rgba(0, 123, 255, 0.12);
+        .qq-container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            z-index: 0;
         }
         
-        .recruitment-card h3 {
-            color: #0056b3;
+        .qq-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .qq-number {
+            font-size: 3.5rem;
+            color: #12b7f5;
+            margin: 30px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(18, 183, 245, 0.5);
+            letter-spacing: 3px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .qq-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .qq-step {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 25px;
+            width: 220px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .qq-step i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
             margin-bottom: 15px;
         }
         
-        .highlight {
-            background: linear-gradient(135deg, #007BFF, #00a8ff);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 5px;
-            font-weight: bold;
+        .qq-step h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Roblox宜城市政务服务中心</h1>
-            <p>高效服务 · 便民利民 · 公正透明</p>
-        </div>
         
-        <div class="button-group">
-            <button onclick="switchContent(1)">通知公告</button>
-            <button onclick="switchContent(2)">公职人员招聘</button>
-            <button onclick="switchContent(3)">社会企业招聘</button>
-            <button onclick="switchContent(4)">联系我们</button>
-        </div>
+        .qq-step .number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
         
-        <div class="content" id="content">
-            <div class="welcome-message">
-                <h2>欢迎使用Roblox宜城市政务服务中心</h2>
-                <p>请点击上方按钮获取相关信息与服务</p>
-                <div style="margin-top: 30px;">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24'%3E%3Cpath fill='%23007BFF' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/%3E%3C/svg%3E" alt="Government Icon" style="width: 100px; opacity: 0.7; margin-top: 20px;">
-                </div>
-            </div>
-        </div>
+        /* 服务部分 */
+        .services {
+            padding: 100px 0;
+            background: var(--dark-bg);
+        }
         
-        <div class="footer">
-            <p>© 2023 Roblox宜城市政务服务中心 | 技术支持: 3349939639</p>
-        </div>
-    </div>
-
-    <script>
-        function switchContent(num) {
-            var content = document.getElementById('content');
-            switch (num) {
-                case 1:
-                    content.innerHTML = `
-                        <div class="section-title">
-                            <h2>Roblox宜城市规则</h2>
-                        </div>
-                        <div class="rules-container">
-                            <div class="rule-card">
-                                <h4>行为规范</h4>
-                                <p>1. 不得打骂他人【包括英文外语，谐音】</p>
-                                <p>2. 不得挑衅他人</p>
-                                <p>3. 不得攻击自己人</p>
-                                <p>4. 不得发布涉黄，赌，毒，外挂</p>
-                                <p>5. 一切行动听指挥</p>
-                                <p>6. 未在执行任务不得打警笛亮警灯</p>
-                            </div>
-                            
-                            <div class="rule-card">
-                                <h4>工作要求</h4>
-                                <p>7. 不得辱骂上级领导，顶撞上级领导</p>
-                                <p>8. 如对督察处罚不满意，可向群主申请复审</p>
-                                <p>9. 游戏中严格遵守交通秩序</p>
-                                <p>10. 督查调查需积极配合</p>
-                                <p>11. 调查问话，请积极配合</p>
-                                <p>12. 不得发布任何违法的言论</p>
-                            </div>
-                            
-                            <div class="rule-card">
-                                <h4>工作纪律</h4>
-                                <p>13. 一周必须发布1张照片【在游戏中工作】</p>
-                                <p>14. 如果发生暴乱必须请示上级不得私自行动</p>
-                                <p>15. 如果发现通缉人员，不得激怒，请示上级</p>
-                                <p>16. 乐子勿加</p>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-top: 30px; font-weight: bold; color: #007BFF; font-size: 1.2rem;">
-                            Roblox宜昌市市政府宣
-                        </div>
-                    `;
-                    break;
-                case 2:
-                    content.innerHTML = `
-                        <div class="section-title">
-                            <h2>公职人员招聘</h2>
-                        </div>
-                        
-                        <div class="recruitment-grid">
-                            <div class="recruitment-card">
-                                <h3>纪检委招聘启事</h3>
-                                <p>纪检委作为维护党纪政纪、推进党风廉政建设和反腐败斗争的重要力量，肩负着监督执纪问责的神圣使命。</p>
-                                <p>招聘职位：</p>
-                                <ul>
-                                    <li>执法人员 × 3</li>
-                                    <li>纪检监察专员 × 1</li>
-                                    <li>组织部部长 × 1</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="recruitment-card">
-                                <h3>警察招聘启事</h3>
-                                <p>必要条件：</p>
-                                <ul>
-                                    <li>C1驾驶证</li>
-                                    <li>没有犯罪史</li>
-                                    <li>驾驶证必须12分</li>
-                                    <li>党员介绍人</li>
-                                    <li>所有成人对你印象良好</li>
-                                    <li>拥有警察通行证</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="recruitment-card">
-                                <h3>工作纪律</h3>
-                                <ul>
-                                    <li>听指挥干什么事(包括查车)要在警用频道报备</li>
-                                    <li>听党话，跟党走做一个清正廉洁的公职人员</li>
-                                    <li>公职人员不可徇私枉法</li>
-                                    <li>不可利用手中职权获得利益</li>
-                                    <li>如有发现终生黑名单</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="recruitment-card">
-                                <h3>职业需求</h3>
-                                <ul>
-                                    <li>驾校经理 × 1</li>
-                                    <li>交警 × 1</li>
-                                    <li>民警 × 1</li>
-                                    <li>交通运输管理局 查车的 × 2</li>
-                                    <li>和市场监管部门联合执法</li>
-                                    <li>如果抓了10个人可以申请警察局副局长</li>
-                                    <li>如果你有违法乱纪的事情纪检会找到你</li>
-                                </ul>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                case 3:
-                    content.innerHTML = `
-                        <div class="section-title">
-                            <h2>社会企业招聘</h2>
-                        </div>
-                        
-                        <div class="recruitment-card" style="max-width: 600px;">
-                            <h3>幽草出行招聘司机</h3>
-                            <p>要求：</p>
-                            <ul>
-                                <li>无重大交通事故记录，无不良驾驶记录</li>
-                                <li>具有较强的安全意识</li>
-                                <li>服务意识强，具备良好的沟通能力</li>
-                                <li>职业素养高，能热情、耐心地服务乘客</li>
-                            </ul>
-                            
-                            <div style="margin-top: 25px;">
-                                <h3>岗位招聘</h3>
-                                <p>司机 <span class="highlight">3名</span></p>
-                                <p>经理 <span class="highlight">1名</span></p>
-                            </div>
-                            
-                            <div style="margin-top: 25px; background: rgba(0, 123, 255, 0.1); padding: 15px; border-radius: 10px;">
-                                <h3>薪资待遇</h3>
-                                <p style="font-size: 1.4rem; color: #e74c3c; font-weight: bold;">50w+绩效</p>
-                                <p>一周一结</p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                case 4:
-                    content.innerHTML = `
-                        <div class="section-title">
-                            <h2>联系我们</h2>
-                        </div>
-                        
-                        <div style="max-width: 500px;">
-                            <div style="font-size: 1.8rem; margin: 30px 0; color: #007BFF;">
-                                <i class="fas fa-envelope"></i> 技术支持
-                            </div>
-                            
-                            <div style="background: rgba(0, 123, 255, 0.1); padding: 25px; border-radius: 15px; margin: 20px 0;">
-                                <p style="font-size: 1.5rem; font-weight: bold; color: #e74c3c;">3349939639</p>
-                                <p>工作日 9:00 - 18:00</p>
-                            </div>
-                            
-                            <div style="margin-top: 40px;">
-                                <p>祝您在Roblox宜城市游玩愉快！</p>
-                                <p style="margin-top: 15px; font-size: 0.9rem; color: #777;">
-                                    本服务中心致力于为市民提供高效、便捷的政务服务
-                                </p>
-                            </div>
-                            
-                            <div style="margin-top: 30px; opacity: 0.7;">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 24 24'%3E%3Cpath fill='%23007BFF' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E" alt="Contact">
-                            </div>
-                        </div>
-                    `;
-                    break;
-                default:
-                    content.innerHTML = `
-                        <div class="welcome-message">
-                            <h2>欢迎使用Roblox宜城市政务服务中心</h2>
-                            <p>请点击上方按钮获取相关信息与服务</p>
-                        </div>
-                    `;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: var(--medium-bg);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.1);
+        }
+        
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin: 20px 0;
+            color: var(--primary-color);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .service-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* 浮动QQ按钮 */
+        .float-qq {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #12b7f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 25px rgba(18, 183, 245, 0.5);
+            z-index: 999;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .float-qq:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 30px rgba(18, 183, 245, 0.7);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float-text {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .float-qq:hover .float-text {
+            opacity: 1;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--dark-bg);
+            padding: 50px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--light-bg);
+            color: var(--primary-color);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
             }
             
-            // 添加动画效果
-            content.style.opacity = 0;
-            setTimeout(() => {
-                content.style.transition = "opacity 0.5s ease";
-                content.style.opacity = 1;
-            }, 10);
+            .qq-number {
+                font-size: 2.8rem;
+            }
         }
-    </script>
-</body>
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 15px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .qq-container {
+                padding: 30px 20px;
+            }
+            
+            .qq-number {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .qq-number {
+                font-size: 1.8rem;
+            }
+            
+            .float-qq {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style> 
+  <script src="js/jq.js"></script> 
+ </head> 
+ <body id="v1"> 
+  <!-- 头部导航 --> 
+  <header id="v2"> 
+   <div id="v3" class="container header-container"> 
+    <div id="v4" class="logo"> 
+     <i id="v5" class="fas fa-yin-yang"></i> 
+     <h1 id="v6">玄机六爻</h1> 
+    </div> 
+    <nav id="v7"> 
+     <ul id="v8"> 
+      <li id="v9"><a id="v10" href="#home">首页</a></li> 
+      <li id="v11"><a id="v12" href="#gua">卦象解析</a></li> 
+      <li id="v13"><a id="v14" href="#services">服务项目</a></li> 
+      <li id="v15"><a id="v16" href="#qq">QQ预约</a></li> 
+     </ul> 
+    </nav> 
+   </div> 
+  </header> 
+  <!-- 英雄区域 --> 
+  <section class="hero" id="home"> 
+   <div id="v17" class="container"> 
+    <div id="v18" class="hero-content"> 
+     <h2 id="v19">洞察天机，指引人生</h2> 
+     <p id="v20">传承千年的六爻卜卦智慧，为您的人生决策提供清晰方向。结合易经哲学与现代生活，揭示命运轨迹，把握人生机遇。</p> 
+     <div id="v21" class="hero-btns"> 
+      <a id="v22" href="#qq" class="btn btn-qq"> <i id="v23" class="fab fa-qq"></i> QQ咨询预约 </a> 
+      <a id="v24" href="#services" class="btn btn-secondary">服务介绍</a> 
+     </div> 
+    </div> 
+   </div> 
+  </section> 
+  <!-- 卦象展示区 --> 
+  <section class="gua-section" id="gua"> 
+   <div id="v25" class="container"> 
+    <div id="v26" class="section-title"> 
+     <h2 id="v27">六爻卦象解析</h2> 
+    </div> 
+    <div id="v28" class="gua-container"> 
+     <div id="v29" class="gua-card"> 
+      <i id="v30" class="fas fa-mountain"></i> 
+      <h3 id="v31">乾为天</h3> 
+      <p id="v32">刚健中正，自强不息。象征创造、领导力和积极进取的力量。</p> 
+     </div> 
+     <div id="v33" class="gua-card"> 
+      <i id="v34" class="fas fa-water"></i> 
+      <h3 id="v35">坤为地</h3> 
+      <p id="v36">柔顺包容，厚德载物。代表接纳、滋养和无限潜能。</p> 
+     </div> 
+     <div id="v37" class="gua-card"> 
+      <i id="v38" class="fas fa-fire"></i> 
+      <h3 id="v39">离为火</h3> 
+      <p id="v40">光明美丽，依附向上。象征热情、智慧和人际关系。</p> 
+     </div> 
+    </div> 
+   </div> 
+  </section> 
+  <!-- QQ预约区域 --> 
+  <section class="qq-section" id="qq"> 
+   <div id="v41" class="container"> 
+    <div id="v42" class="section-title"> 
+     <h2 id="v43">QQ咨询预约</h2> 
+    </div> 
+    <div id="v44" class="qq-container"> 
+     <div id="v45" class="qq-content"> 
+      <p id="v46" style="font-size: 1.4rem; margin-bottom: 20px;">添加我的QQ进行咨询预约</p> 
+      <div id="v47" class="qq-number">
+        3349939639 
+      </div> 
+      <p id="v48" style="font-size: 1.2rem; margin-bottom: 40px;">专业六爻预测师在线解答您的人生困惑</p> 
+      <div id="v49" class="qq-steps"> 
+       <div id="v50" class="qq-step"> 
+        <div id="v51" class="number">
+          1 
+        </div> 
+        <i id="v52" class="fab fa-qq"></i> 
+        <h4 id="v53">添加QQ</h4> 
+        <p id="v54">添加QQ号：3349939639</p> 
+       </div> 
+       <div id="v55" class="qq-step"> 
+        <div id="v56" class="number">
+          2 
+        </div> 
+        <i id="v57" class="fas fa-comments"></i> 
+        <h4 id="v58">描述问题</h4> 
+        <p id="v59">简要说明您想咨询的问题</p> 
+       </div> 
+       <div id="v60" class="qq-step"> 
+        <div id="v61" class="number">
+          3 
+        </div> 
+        <i id="v62" class="fas fa-calendar-check"></i> 
+        <h4 id="v63">预约时间</h4> 
+        <p id="v64">确定具体咨询时间</p> 
+       </div> 
+      </div> 
+      <a id="v65" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3349939639&amp;site=qq&amp;menu=yes" target="_blank" class="btn btn-qq" style="padding: 15px 40px; font-size: 1.2rem;"> <i id="v66" class="fab fa-qq"></i> 立即咨询 </a> 
+     </div> 
+    </div> 
+   </div> 
+  </section> 
+  <!-- 服务项目 --> 
+  <section class="services" id="services"> 
+   <div id="v67" class="container"> 
+    <div id="v68" class="section-title"> 
+     <h2 id="v69">专业服务</h2> 
+    </div> 
+    <div id="v70" class="services-grid"> 
+     <div id="v71" class="service-card"> 
+      <div id="v72" class="service-icon"> 
+       <i id="v73" class="fas fa-briefcase"></i> 
+      </div> 
+      <h3 id="v74">事业财运</h3> 
+      <p id="v75">分析事业发展方向，预测财富机遇，提供决策建议，助您把握事业良机。</p> 
+     </div> 
+     <div id="v76" class="service-card"> 
+      <div id="v77" class="service-icon"> 
+       <i id="v78" class="fas fa-heart"></i> 
+      </div> 
+      <h3 id="v79">感情婚姻</h3> 
+      <p id="v80">解析感情走向，预测婚姻发展，提供和谐关系建议，助您收获美满姻缘。</p> 
+     </div> 
+     <div id="v81" class="service-card"> 
+      <div id="v82" class="service-icon"> 
+       <i id="v83" class="fas fa-home"></i> 
+      </div> 
+      <h3 id="v84">家宅风水</h3> 
+      <p id="v85">结合六爻与风水，优化居住环境，调和家庭关系，营造和谐家居氛围。</p> 
+     </div> 
+    </div> 
+   </div> 
+  </section> 
+  <!-- 浮动QQ按钮 --> 
+  <div class="float-qq" id="floatQQ"> 
+   <i id="v86" class="fab fa-qq"></i> 
+   <div id="v87" class="float-text">
+     点击咨询 
+   </div> 
+  </div> 
+  <!-- 页脚 --> 
+  <footer id="v88"> 
+   <div id="v89" class="container"> 
+    <div id="v90" class="footer-content"> 
+     <div id="v91" class="footer-section"> 
+      <h3 id="v92">玄机六爻</h3> 
+      <p id="v93">传承千年智慧，指引现代人生</p> 
+      <div id="v94" class="social-links"> 
+       <a id="v95" href="#"><i id="v96" class="fab fa-weixin"></i></a> 
+       <a id="v97" href="#"><i id="v98" class="fab fa-weibo"></i></a> 
+       <a id="v99" href="http://wpa.qq.com/msgrd?v=3&amp;uin=3349939639&amp;site=qq&amp;menu=yes" target="_blank"><i id="v100" class="fab fa-qq"></i></a> 
+      </div> 
+     </div> 
+     <div id="v101" class="footer-section"> 
+      <h3 id="v102">联系方式</h3> 
+      <p id="v103"><i id="v104" class="fab fa-qq"></i> QQ: 3349939639</p> 
+      <p id="v105"><i id="v106" class="fas fa-envelope"></i> liuyao@xuanji.com</p> 
+      <p id="v107"><i id="v108" class="fas fa-clock"></i> 服务时间: 9:00-22:00</p> 
+     </div> 
+     <div id="v109" class="footer-section"> 
+      <h3 id="v110">服务承诺</h3> 
+      <p id="v111">专业解卦，精准预测</p> 
+      <p id="v112">隐私保护，诚信服务</p> 
+      <p id="v113">解答清晰，建议实用</p> 
+     </div> 
+    </div> 
+    <div id="v114" class="copyright"> 
+     <p id="v115">© 2023 玄机六爻文化传播中心 保留所有权利</p> 
+    </div> 
+   </div> 
+  </footer> 
+  <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 头部滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.background = 'rgba(26, 18, 11, 0.95)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.background = 'rgba(26, 18, 11, 0.9)';
+            }
+        });
+
+        // 浮动QQ按钮点击事件
+        document.getElementById('floatQQ').addEventListener('click', function() {
+            window.open('http://wpa.qq.com/msgrd?v=3&uin=3349939639&site=qq&menu=yes', '_blank');
+        });
+        
+        // 卡片悬停效果增强
+        const cards = document.querySelectorAll('.gua-card, .service-card, .qq-step');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 15px 35px rgba(212, 175, 55, 0.25)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+        
+        // QQ号码点击复制功能
+        const qqNumber = document.querySelector('.qq-number');
+        qqNumber.addEventListener('click', function() {
+            const tempInput = document.createElement('input');
+            tempInput.value = '3349939639';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // 显示复制成功提示
+            const originalText = this.textContent;
+            this.textContent = '已复制到剪贴板！';
+            this.style.color = '#4caf50';
+            
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.style.color = '#12b7f5';
+            }, 1500);
+        });
+    </script>  
+ </body>
 </html>
